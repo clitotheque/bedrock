@@ -1,0 +1,50 @@
+{
+    "key": "group_5d5196e8667aa",
+    "title": "Youtube",
+    "fields": [
+        {
+            "key": "field_5d5196eb863b5",
+            "label": "Youtube ID",
+            "name": "youtube_id",
+            "type": "text",
+            "instructions": "The ID of this Youtube video",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 11
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "res_types:yt-fr"
+            }
+        ],
+        [
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "res_types:yt"
+            }
+        ]
+    ],
+    "menu_order": 2,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1565628253
+}
