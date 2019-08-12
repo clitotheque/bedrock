@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_5d4ae5f7a5189",
-            "label": "Creator",
+            "label": "Creator(s)",
             "name": "creator",
             "type": "post_object",
-            "instructions": "Creator of this ressource.\r\nChoose anonymous if unknown.",
+            "instructions": "Creator of this ressource.\r\nChoose anonymous if unknown.\r\nIf the creator has not yet been registerd, open a new window and create one before going on with that form.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -20,13 +20,30 @@
             ],
             "taxonomy": "",
             "allow_null": 0,
-            "multiple": 0,
+            "multiple": 1,
             "return_format": "object",
             "ui": 1
         },
         {
+            "key": "field_5d5176a34f3d6",
+            "label": "Publicreation date",
+            "name": "publicreation_date",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
+        },
+        {
             "key": "field_5d4ae78ab142d",
-            "label": "Mature",
+            "label": "Mature content",
             "name": "mature",
             "type": "true_false",
             "instructions": "",
@@ -61,5 +78,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565616799
+    "modified": 1565619973
 }
