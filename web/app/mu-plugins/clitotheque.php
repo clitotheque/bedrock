@@ -189,9 +189,10 @@ function get_or_new(
 
 function register_terms()
 {
+    // Sanity check. Maybe move to get_or_new
     if (
-        (is_plugin_active('polylang-pro/polylang.php')
-            && pll_is_translated_taxonomy('res_types'))
+        is_plugin_active('polylang-pro/polylang.php')
+        && pll_is_translated_taxonomy('res_types')
     ) {
 
         $link = get_or_new(
@@ -203,13 +204,53 @@ function register_terms()
             'A Link-based resource.'
         );
 
+        get_or_new(
+            array(
+                'en' => 'Site',
+                'fr' => 'Site'
+            ),
+            'site',
+            'A website resource',
+            $link
+        );
+
+        get_or_new(
+            array(
+                'en' => 'Web article',
+                'fr' => 'Article web'
+            ),
+            'web_article',
+            'An online article',
+            $link
+        );
+
         $vid = get_or_new(
             array(
                 'en' => 'Video',
                 'fr' => 'Vidéo'
             ),
             'video',
-            'A video ressource',
+            'A video resource',
+            $link
+        );
+
+        get_or_new(
+            array(
+                'en' => 'Podcast',
+                'fr' => 'Podcast'
+            ),
+            'podcast',
+            '',
+            $link
+        );
+
+        get_or_new(
+            array(
+                'en' => 'Scientific publication',
+                'fr' => 'Article scientifique'
+            ),
+            'science_pub',
+            '',
             $link
         );
 
@@ -219,8 +260,27 @@ function register_terms()
                 'fr' => 'Youtube'
             ),
             'yt',
-            'A Youtube hosted video',
+            'A Youtube-hosted video',
             $vid
+        );
+
+
+        get_or_new(
+            array(
+                'en' => 'Book',
+                'fr' => 'Livre'
+            ),
+            'book',
+            ''
+        );
+
+        get_or_new(
+            array(
+                'en' => 'Movie',
+                'fr' => 'Film'
+            ),
+            'web_article',
+            ''
         );
     }
 }
