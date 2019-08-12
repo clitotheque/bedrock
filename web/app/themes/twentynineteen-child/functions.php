@@ -13,6 +13,18 @@ function theme_enqueue_styles()
 }
 
 /**
+ * Activate should-be-here plugins
+ * TODO better way ?
+ */
+function activate_mandatory_plugins()
+{
+	activate_plugin("polylang/polylang.php");
+	//activate_plugin("disable-gutenberg/disable-gutenberg.php");
+	activate_plugin("advanced-custom-fields/acf.php");
+}
+add_action('after_setup_theme', 'activate_mandatory_plugins');
+
+/**
  * TAXONOMIES
  */
 function cptui_register_my_taxes()
@@ -219,7 +231,10 @@ function register_terms()
 	);
 }
 
-if (is_plugin_active('polylang/polylang.php')) {
+if (
+	is_plugin_active('polylang/polylang.php')
+	&& function_exists('pll_set_term_language')
+) {
 	//plugin is activated
 	add_action('init', 'register_terms');
 }
