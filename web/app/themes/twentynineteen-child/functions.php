@@ -80,6 +80,7 @@ function cptui_register_my_cpts()
 		"query_var" => true,
 		"menu_icon" => "dashicons-screenoptions",
 		"supports" => array("title", "editor", "thumbnail"),
+		"taxonomies" => array("category", "post_tag", "res_types"),
 	);
 
 	register_post_type("res", $args);
@@ -124,24 +125,92 @@ function cptui_register_my_cpts()
 add_action('init', 'cptui_register_my_cpts');
 
 /**
- * Taxonomy term
+ * Taxonomy terms
  */
-$ty_link = wp_insert_term(
-	'Link', // the term
-	'product', // the taxonomy
-	array(
-		'description' => 'A Link-based resource.',
-		'slug' => 'link',
-		//'parent'=> $parent_term['term_id']  // get numeric term id
-	)
-);
+function get_or_new(
+	$names,
+	$slug,
+	$description,
+	$parents = null,
+	$tax = 'res_types'
+) {
+	// Provided a map of lang => names,
+	// this function populates the terms
+	// adequatly for polylang use
+	$langs = array();
+	$results = array();
+	array_walk(
+		$names,
+		// 'use' needed for closure
+		function ($name, $lang)
+		use ($slug, $description, $tax, $parents, &$langs, &$results) {
+			if ($lang != 'en') $slug = $slug . '-' . $lang;
 
-$ty_link = wp_insert_term(
-	'Lien', // the term
-	'res_types', // the taxonomy
-	array(
-		'description' => 'A Link-based resource.',
-		'slug' => 'link-fr',
-		//'parent'=> $parent_term['term_id']  // get numeric term id
-	)
-);
+			$res = term_exists($slug, $tax);
+
+			if (is_null($res)) {
+				// If term is not registered, do it
+
+				// Does it have a parent ?
+				$pid = 0;
+				if (!is_null($parents)) {
+					$pid = $parents[$lang];
+				}
+				$res = wp_insert_term(
+					$name, // the term
+					$tax, // the taxonomy
+					array(
+						'description' => $description,
+						'slug' => $slug,
+						'parent' => $pid
+					)
+				);
+				pll_set_term_language($res['term_id'], $lang);
+			}
+
+			$langs[$lang] = $res['term_id'];
+			$results[$lang] = $res['term_id'];
+		}
+	);
+
+	pll_save_term_translations($langs);
+
+	// We return new-terms-ids to chain creations
+	// of hierarchical taxonomies
+	return $results;
+}
+
+function register_terms()
+{
+
+	$link = get_or_new(
+		array(
+			'en' => 'Link',
+			'fr' => 'Lien'
+		),
+		'link',
+		'A Link-based resource.'
+	);
+
+	$vid = get_or_new(
+		array(
+			'en' => 'Video',
+			'fr' => 'Vidéo'
+		),
+		'video',
+		'A video ressource',
+		$link
+	);
+
+	get_or_new(
+		array(
+			'en' => 'Youtube',
+			'fr' => 'Youtube'
+		),
+		'yt',
+		'A Youtube hosted video',
+		$vid
+	);
+}
+
+add_action('init', 'register_terms');
