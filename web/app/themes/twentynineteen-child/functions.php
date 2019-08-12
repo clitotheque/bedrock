@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Detect plugin. For use on Front End only.
+ */
+include_once(ABSPATH . 'wp-admin/includes/plugin.php');
+
+
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 function theme_enqueue_styles()
 {
@@ -213,4 +219,7 @@ function register_terms()
 	);
 }
 
-add_action('init', 'register_terms');
+if (is_plugin_active('polylang/polylang.php')) {
+	//plugin is activated
+	add_action('init', 'register_terms');
+}
