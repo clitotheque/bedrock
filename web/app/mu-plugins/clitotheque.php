@@ -189,40 +189,42 @@ function get_or_new(
 
 function register_terms()
 {
+    if (
+        (is_plugin_active('polylang-pro/polylang.php')
+            && pll_is_translated_taxonomy('res_types'))
+    ) {
 
-    $link = get_or_new(
-        array(
-            'en' => 'Link',
-            'fr' => 'Lien'
-        ),
-        'link',
-        'A Link-based resource.'
-    );
+        $link = get_or_new(
+            array(
+                'en' => 'Link',
+                'fr' => 'Lien'
+            ),
+            'link',
+            'A Link-based resource.'
+        );
 
-    $vid = get_or_new(
-        array(
-            'en' => 'Video',
-            'fr' => 'Vidéo'
-        ),
-        'video',
-        'A video ressource',
-        $link
-    );
+        $vid = get_or_new(
+            array(
+                'en' => 'Video',
+                'fr' => 'Vidéo'
+            ),
+            'video',
+            'A video ressource',
+            $link
+        );
 
-    get_or_new(
-        array(
-            'en' => 'Youtube',
-            'fr' => 'Youtube'
-        ),
-        'yt',
-        'A Youtube hosted video',
-        $vid
-    );
+        get_or_new(
+            array(
+                'en' => 'Youtube',
+                'fr' => 'Youtube'
+            ),
+            'yt',
+            'A Youtube hosted video',
+            $vid
+        );
+    }
 }
 
-if (
-    is_plugin_active('polylang-pro/polylang.php')
-) {
-    //plugin is activated
-    add_action('init', 'register_terms');
-}
+
+//plugin is activated
+add_action('init', 'register_terms');
