@@ -45,9 +45,16 @@
                 "operator": "==",
                 "value": "res_types:link"
             }
+        ],
+        [
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "res_types:link-fr"
+            }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 1,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -55,5 +62,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565620966
+    "modified": 1565628092
 }
