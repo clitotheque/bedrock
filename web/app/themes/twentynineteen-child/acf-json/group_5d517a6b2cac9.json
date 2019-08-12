@@ -1,0 +1,59 @@
+{
+    "key": "group_5d517a6b2cac9",
+    "title": "Link",
+    "fields": [
+        {
+            "key": "field_5d517a6e83607",
+            "label": "Link",
+            "name": "link",
+            "type": "url",
+            "instructions": "The link to the content",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d517a8d83608",
+            "label": "Link name",
+            "name": "link_name",
+            "type": "text",
+            "instructions": "The text to show in place of the link.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 100
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "res_types:link"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1565620966
+}
