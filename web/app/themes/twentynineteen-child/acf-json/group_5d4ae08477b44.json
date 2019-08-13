@@ -78,6 +78,25 @@
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_5d52af1a881a0",
+            "label": "Review",
+            "name": "review",
+            "type": "textarea",
+            "instructions": "Why do you like this resource ?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 5,
+            "new_lines": ""
         }
     ],
     "location": [
@@ -97,5 +116,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565641814
+    "modified": 1565699959
 }
