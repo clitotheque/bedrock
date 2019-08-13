@@ -282,6 +282,29 @@ function register_terms()
             'movie',
             ''
         );
+
+
+        get_or_new(
+            array(
+                'en' => 'Featured content',
+                'fr' => 'Contenu mis en avant'
+            ),
+            'featured',
+            '',
+            null,
+            'category'
+        );
+
+        get_or_new(
+            array(
+                'en' => 'Clitoris',
+                'fr' => 'Clitoris'
+            ),
+            'clito',
+            '',
+            null,
+            'category'
+        );
     }
 }
 
