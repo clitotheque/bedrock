@@ -191,7 +191,8 @@ function register_terms()
 {
     // Sanity check. Maybe move to get_or_new
     if (
-        is_plugin_active('polylang-pro/polylang.php')
+        //is_plugin_active('polylang-pro/polylang.php')
+        function_exists('pll_is_translated_taxonomy')
         && pll_is_translated_taxonomy('res_types')
     ) {
 
@@ -311,3 +312,14 @@ function register_terms()
 
 //plugin is activated
 add_action('init', 'register_terms');
+
+/**
+ * Keep categories hierarchical
+ */
+add_filter('wp_terms_checklist_args', 'my_website_wp_terms_checklist_args', 1, 2);
+function my_website_wp_terms_checklist_args($args, $post_id)
+{
+    $args['checked_ontop'] = false;
+
+    return $args;
+}
