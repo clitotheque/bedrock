@@ -279,7 +279,7 @@ function register_terms()
                 'en' => 'Movie',
                 'fr' => 'Film'
             ),
-            'web_article',
+            'movie',
             ''
         );
     }
