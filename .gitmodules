@@ -1,0 +1,3 @@
+[submodule "web/app/themes/clitotheme"]
+	path = web/app/themes/clitotheme
+	url = git@github.com:clitotheque/clitotheme.git
