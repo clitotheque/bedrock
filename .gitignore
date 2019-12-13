@@ -35,3 +35,4 @@ wp-cli.local.yml
 
 
 # web/app/themes/clitotheme
+web/app/themes/.DS_Store
