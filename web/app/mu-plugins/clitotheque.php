@@ -75,6 +75,7 @@ function cptui_register_my_taxes()
         );
     register_taxonomy( "res_lang", array( "res" ), $args );
     
+    return true;
 }
 
 
@@ -155,6 +156,8 @@ function cptui_register_my_cpts()
     );
 
     register_post_type("creator", $args);
+
+    return true;
 }
 
 /**
@@ -414,31 +417,27 @@ function add_search_page()
 
     // Insert the post into the database
     wp_insert_post( $my_post );
+
+    return true;
 }
 
+function do_if_not_done( $flag, callable $function, $version = '1') {
+    if($version !== get_option( $flag )) {
+        if ($function()) {
+            update_option( $flag, '1' );
+        }
+    }
+}
 
 /**
  * On activation (first init) work
  */
-function prepare() {
-    if ( '1' !== get_option( 'ctq_activated' ) ) {
-        cptui_register_my_taxes();
-        cptui_register_my_cpts();
-        add_search_page();
-        update_option( 'ctq_activated', '1' );
-    }
-    
-    if ( '1' !== get_option( 'ctq_types_registered' ) ) {
-        if (register_res_types()) {
-            update_option( 'ctq_types_registered', '1' );
-        }
-    }
-    
-    if ( '1' !== get_option( 'ctq_langs_registered' ) ) {
-        if (register_res_langs()) {
-            update_option( 'ctq_langs_registered', '1' );
-        }
-    }
+function prepare() {    
+    do_if_not_done('stc_taxonomies_registered', 'cptui_register_my_taxes');
+    do_if_not_done('stc_post_types_registered', 'cptui_register_my_cpts');
+    do_if_not_done('ctq_types_registered', 'register_res_types');
+    do_if_not_done('ctq_langs_registered', 'register_res_langs');
+    do_if_not_done('ctq_add_search_page', 'add_search_page');
 }
 
 /**
