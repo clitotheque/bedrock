@@ -24,12 +24,12 @@ function cptui_register_my_taxes()
      */
 
     $labels = array(
-        "name" => __("Resource types", "twenty-nineteen-child"),
-        "singular_name" => __("Resource type", "twenty-nineteen-child"),
+        "name" => __("Resource types", "sage"),
+        "singular_name" => __("Resource type", "sage"),
     );
 
     $args = array(
-        "label" => __("Resource types", "twenty-nineteen-child"),
+        "label" => __("Resource types", "sage"),
         "labels" => $labels,
         "public" => true,
         "publicly_queryable" => true,
@@ -46,8 +46,36 @@ function cptui_register_my_taxes()
         "show_in_quick_edit" => false,
     );
     register_taxonomy("res_types", array("res"), $args);
+
+    /**
+     * Taxonomy: Resource languages.
+     */
+
+    $labels = array(
+        "name" => __( "Resource languages", "sage" ),
+        "singular_name" => __( "Resource language", "sage" ),
+    );
+
+    $args = array(
+        "label" => __( "Resource languages", "sage" ),
+        "labels" => $labels,
+        "public" => true,
+        "publicly_queryable" => true,
+        "hierarchical" => false,
+        "show_ui" => true,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "query_var" => true,
+        "rewrite" => array( 'slug' => 'res_lang', 'with_front' => true, ),
+        "show_admin_column" => false,
+        "show_in_rest" => true,
+        "rest_base" => "res_lang",
+        "rest_controller_class" => "WP_REST_Terms_Controller",
+        "show_in_quick_edit" => false,
+        );
+    register_taxonomy( "res_lang", array( "res" ), $args );
+    
 }
-add_action('init', 'cptui_register_my_taxes');
 
 
 /**
@@ -129,10 +157,11 @@ function cptui_register_my_cpts()
     register_post_type("creator", $args);
 }
 
-add_action('init', 'cptui_register_my_cpts');
-
 /**
  * Taxonomy terms
+ *    Provided a map of lang => names,
+ *    this function populates the terms
+ *    adequatly for polylang use
  */
 function get_or_new(
     $names,
@@ -141,11 +170,8 @@ function get_or_new(
     $parents = null,
     $tax = 'res_types'
 ) {
-    // Provided a map of lang => names,
-    // this function populates the terms
-    // adequatly for polylang use
     $langs = array();
-    $results = array();
+    $results = array(); 
     array_walk(
         $names,
         // 'use' needed for closure
@@ -187,7 +213,7 @@ function get_or_new(
     return $results;
 }
 
-function register_terms()
+function register_res_types()
 {
     // Sanity check. Maybe move to get_or_new
     if (
@@ -306,15 +332,62 @@ function register_terms()
             null,
             'category'
         );
+
+        return true;
     }
+
+    return false;
 }
 
+function register_res_langs()
+{
+    if (
+        //is_plugin_active('polylang-pro/polylang.php')
+        function_exists('pll_is_translated_taxonomy')
+        && pll_is_translated_taxonomy('res_lang')
+    ) {
 
-//plugin is activated
-add_action('init', 'register_terms');
+        get_or_new(
+            array(
+                'en' => 'English',
+                'fr' => 'Anglais'
+            ),
+            'GB',
+            '',
+            null,
+            'res_lang'
+        );
+
+        get_or_new(
+            array(
+                'en' => 'French',
+                'fr' => 'Français'
+            ),
+            'FR',
+            '',
+            null,
+            'res_lang'
+        );
+
+        get_or_new(
+            array(
+                'en' => 'Spanish',
+                'fr' => 'Espagnol'
+            ),
+            'ES',
+            '',
+            null,
+            'res_lang'
+        );
+
+        return true;
+    }
+
+    return false;
+}
 
 /**
- * Keep categories hierarchical
+ * Option to keep categories hierarchical
  */
 add_filter('wp_terms_checklist_args', 'my_website_wp_terms_checklist_args', 1, 2);
 function my_website_wp_terms_checklist_args($args, $post_id)
@@ -323,3 +396,53 @@ function my_website_wp_terms_checklist_args($args, $post_id)
 
     return $args;
 }
+
+/**
+ * Pages creation
+ */
+function add_search_page() 
+{
+    // Create post object
+    $my_post = [
+      'post_title'    => wp_strip_all_tags( 'Search' ),
+      'post_content'  => 
+        '[searchandfilter id="33"] [searchandfilter id="33" show="results"]',
+      'post_status'   => 'publish',
+      'post_author'   => 1,
+      'post_type'     => 'page',
+    ];
+
+    // Insert the post into the database
+    wp_insert_post( $my_post );
+}
+
+
+/**
+ * On activation (first init) work
+ */
+function prepare() {
+    if ( '1' !== get_option( 'ctq_activated' ) ) {
+        cptui_register_my_taxes();
+        cptui_register_my_cpts();
+        add_search_page();
+        update_option( 'ctq_activated', '1' );
+    }
+    
+    if ( '1' !== get_option( 'ctq_types_registered' ) ) {
+        if (register_res_types()) {
+            update_option( 'ctq_types_registered', '1' );
+        }
+    }
+    
+    if ( '1' !== get_option( 'ctq_langs_registered' ) ) {
+        if (register_res_langs()) {
+            update_option( 'ctq_langs_registered', '1' );
+        }
+    }
+}
+
+/**
+ *  Register terms and create pages when plugin is used for the first time
+ */ 
+add_action('init', 'prepare');
+
