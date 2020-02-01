@@ -62,7 +62,7 @@ class Init
             "rest_controller_class" => "WP_REST_Terms_Controller",
             "show_in_quick_edit" => false,
             );
-        register_taxonomy( "res_lang", array( "res" ), $args );
+        register_taxonomy( "res_lang", array(), $args );
 
         return true;
     }
