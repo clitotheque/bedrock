@@ -312,16 +312,16 @@ class Init
                 'category'
             );
 
-            Init::get_or_new(
-                array(
-                    'en' => 'Clitoris',
-                    'fr' => 'Clitoris'
-                ),
-                'clito',
-                '',
-                null,
-                'category'
-            );
+            // Init::get_or_new(
+            //     array(
+            //         'en' => 'Clitoris',
+            //         'fr' => 'Clitoris'
+            //     ),
+            //     'clito',
+            //     '',
+            //     null,
+            //     'category'
+            // );
 
             return true;
         }
@@ -365,6 +365,39 @@ class Init
                     'fr' => 'Espagnol'
                 ),
                 'ES',
+                '',
+                null,
+                'res_lang'
+            );
+
+            Init::get_or_new(
+                array(
+                    'en' => 'German',
+                    'fr' => 'Allemand'
+                ),
+                'DE',
+                '',
+                null,
+                'res_lang'
+            );
+
+            Init::get_or_new(
+                array(
+                    'en' => 'Italian',
+                    'fr' => 'Italien'
+                ),
+                'DE',
+                '',
+                null,
+                'res_lang'
+            );
+
+            Init::get_or_new(
+                array(
+                    'en' => 'Portuguese',
+                    'fr' => 'Portugais'
+                ),
+                'DE',
                 '',
                 null,
                 'res_lang'
