@@ -10,6 +10,7 @@ License:      MIT License
 */
 
 require_once 'include/init.php';
+require_once 'include/initACF.php';
 
 /**
  * Detect plugin. For use on Front End only.
@@ -44,9 +45,11 @@ function clito_prepare() {
     do_if_not_done('ctq_types_registered', 'Clito\Init::register_res_types');
     do_if_not_done('ctq_langs_registered', 'Clito\Init::register_res_langs');
     do_if_not_done('ctq_add_search_page', 'Clito\Init::add_search_page');
+
 }
 
 /**
  *  Register terms and create pages when plugin is used for the first time
  */
 add_action('init', 'clito_prepare');
+add_action('acf/init', 'Clito\InitACF::go');
