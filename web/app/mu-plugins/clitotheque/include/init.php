@@ -386,7 +386,7 @@ class Init
                     'en' => 'Italian',
                     'fr' => 'Italien'
                 ),
-                'DE',
+                'IT',
                 '',
                 null,
                 'res_lang'
@@ -397,7 +397,7 @@ class Init
                     'en' => 'Portuguese',
                     'fr' => 'Portugais'
                 ),
-                'DE',
+                'PT',
                 '',
                 null,
                 'res_lang'
