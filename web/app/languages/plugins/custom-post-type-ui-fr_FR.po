@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Custom Post Type UI - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-05-20 19:44:00+0000\n"
+"PO-Revision-Date: 2019-09-24 13:20:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1027,7 +1027,7 @@ msgstr "Nom du nouvel élément"
 
 #: inc/taxonomies.php:472
 msgid "(e.g. New Actor Name)"
-msgstr "(p. ex. nouveau nom de l'acteur)"
+msgstr "(p. ex. Nom du nouvel acteur)"
 
 #: inc/taxonomies.php:463
 msgid "(e.g. Add New Actor)"
