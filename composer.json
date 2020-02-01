@@ -46,7 +46,6 @@
     "roots/wp-config": "1.0.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "wpackagist-plugin/advanced-custom-fields": "5.*",
-    "wpackagist-plugin/disable-gutenberg": "2.*",
     "wpackagist-plugin/relevanssi": "4.*"
   },
   "require-dev": {

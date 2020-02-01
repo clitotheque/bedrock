@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82ebf018267aa2541b4242550d194b17",
+    "content-hash": "b7a73860705274482a2db491f057d81a",
     "packages": [
         {
             "name": "composer/installers",
@@ -550,24 +550,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
-        },
-        {
-            "name": "wpackagist-plugin/disable-gutenberg",
-            "version": "2.0",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/disable-gutenberg/",
-                "reference": "tags/2.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/disable-gutenberg.2.0.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/disable-gutenberg/"
         },
         {
             "name": "wpackagist-plugin/relevanssi",
