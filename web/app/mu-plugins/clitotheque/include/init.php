@@ -41,12 +41,12 @@ class Init
          */
 
         $labels = array(
-            "name" => __( "Resource languages", "sage" ),
+            "name" => __( "Resource language(s)", "sage" ),
             "singular_name" => __( "Resource language", "sage" ),
         );
 
         $args = array(
-            "label" => __( "Resource languages", "sage" ),
+            "label" => __( "Resource language(s)", "sage" ),
             "labels" => $labels,
             "public" => true,
             "publicly_queryable" => true,
@@ -62,7 +62,7 @@ class Init
             "rest_controller_class" => "WP_REST_Terms_Controller",
             "show_in_quick_edit" => false,
             );
-        register_taxonomy( "res_lang", array(), $args );
+        register_taxonomy( "res_lang", array("res"), $args );
 
         return true;
     }
