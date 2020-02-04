@@ -84,6 +84,38 @@ class InitACF
             'save_custom' => 0,
           ),
           array(
+            'key' => 'field_5e3999cf8e8c6',
+            'label' => 'Ignore month',
+            'name' => 'ignore_month',
+            'type' => 'checkbox',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => array(
+              array(
+                array(
+                  'field' => 'field_5e2456cf93955',
+                  'operator' => '==',
+                  'value' => 'ignoreday',
+                ),
+              ),
+            ),
+            'wrapper' => array(
+              'width' => '',
+              'class' => '',
+              'id' => '',
+            ),
+            'choices' => array(
+              'ignoreday' => 'Also ignore the month',
+            ),
+            'allow_custom' => 0,
+            'default_value' => array(
+            ),
+            'layout' => 'horizontal',
+            'toggle' => 0,
+            'return_format' => 'label',
+            'save_custom' => 0,
+          ),
+          array(
             'key' => 'field_5d4ae78ab142d',
             'label' => 'Mature content',
             'name' => 'mature',
