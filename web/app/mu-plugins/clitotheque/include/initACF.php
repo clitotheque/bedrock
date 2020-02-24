@@ -80,7 +80,7 @@ class InitACF
             ),
             'layout' => 'horizontal',
             'toggle' => 0,
-            'return_format' => 'label',
+            'return_format' => 'value',
             'save_custom' => 0,
           ),
           array(
@@ -105,14 +105,14 @@ class InitACF
               'id' => '',
             ),
             'choices' => array(
-              'ignoreday' => 'Also ignore the month',
+              'ignoremonth' => 'Also ignore the month',
             ),
             'allow_custom' => 0,
             'default_value' => array(
             ),
             'layout' => 'horizontal',
             'toggle' => 0,
-            'return_format' => 'label',
+            'return_format' => 'value',
             'save_custom' => 0,
           ),
           array(
