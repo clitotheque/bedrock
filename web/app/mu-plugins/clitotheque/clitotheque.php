@@ -44,7 +44,7 @@ function clito_prepare() {
     Clito\Init::register_my_cpts();
     do_if_not_done('ctq_types_registered', 'Clito\Init::register_res_types');
     do_if_not_done('ctq_langs_registered', 'Clito\Init::register_res_langs');
-    do_if_not_done('ctq_add_search_page', 'Clito\Init::add_search_page');
+    //do_if_not_done('ctq_add_search_page', 'Clito\Init::add_search_page');
 
 }
 
