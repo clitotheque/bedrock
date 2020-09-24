@@ -48,7 +48,8 @@
     "vlucas/phpdotenv": "^5.0",
     "wpackagist-plugin/advanced-custom-fields": "5.*",
     "wpackagist-plugin/relevanssi": "4.*",
-    "wpackagist-plugin/wp-ulike":"4.*"
+    "wpackagist-plugin/wp-ulike":"4.*",
+    "wpackagist-plugin/theme-translation-for-polylang":"3.*"
   },
   "require-dev": {
     "laravel/pint": "^1.0",
