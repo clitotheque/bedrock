@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60b719e15447f2d0e9f80a828b11c16c",
+    "content-hash": "7663ba6b9a51a5a6453d0f2b1932bc7f",
     "packages": [
         {
             "name": "composer/installers",
@@ -680,24 +680,6 @@
             "homepage": "https://wordpress.org/plugins/advanced-custom-fields/"
         },
         {
-            "name": "wpackagist-plugin/for-facebook-opengraph-refresher",
-            "version": "1.0.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/for-facebook-opengraph-refresher/",
-                "reference": "tags/1.0.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/for-facebook-opengraph-refresher.1.0.2.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/for-facebook-opengraph-refresher/"
-        },
-        {
             "name": "wpackagist-plugin/koko-analytics",
             "version": "1.0.24",
             "source": {
@@ -714,6 +696,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/koko-analytics/"
+        },
+        {
+            "name": "wpackagist-plugin/opengraph",
+            "version": "1.10.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/opengraph/",
+                "reference": "tags/1.10.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/opengraph.1.10.0.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/opengraph/"
         },
         {
             "name": "wpackagist-plugin/relevanssi",

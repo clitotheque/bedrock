@@ -51,7 +51,7 @@
     "wpackagist-plugin/theme-translation-for-polylang":"3.*",
     "wpackagist-plugin/webp-express":"0.*",
     "wpackagist-plugin/koko-analytics":"1.*",
-    "wpackagist-plugin/for-facebook-opengraph-refresher":"1.*"
+    "wpackagist-plugin/opengraph":"1.*"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.4.2",
