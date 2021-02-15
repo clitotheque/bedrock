@@ -5,10 +5,15 @@ web/app/mu-plugins/*/
 web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
+web/app/languages
 
 # WordPress
 web/wp
 web/.htaccess
+web/app/webp-express
+
+# Cache
+web/app/cache
 
 # Dotenv
 .env
