@@ -51,7 +51,7 @@
     "wpackagist-plugin/wp-ulike": "4.*",
     "wpackagist-plugin/theme-translation-for-polylang": "3.*",
     "wpackagist-plugin/webp-express": "0.*",
-    "wpackagist-plugin/koko-analytics": "1.*",
+    "wpackagist-plugin/koko-analytics": "1.1.0",
     "wpackagist-plugin/opengraph": "1.*"
   },
   "require-dev": {
