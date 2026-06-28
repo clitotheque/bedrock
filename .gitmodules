@@ -1,8 +1,7 @@
 [submodule "web/app/themes/clitotheme"]
 	path = web/app/themes/clitotheme
 	url = git@github.com:clitotheque/clitotheme.git
-
 [submodule "web/app/themes/clitotheme-new"]
 	path = web/app/themes/clitotheme-new
 	url = git@github.com:clitotheque/sage.git
-  branch = clitothème
+	branch = clitothème
