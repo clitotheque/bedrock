@@ -46,13 +46,13 @@
     "roots/wordpress": "7.0",
     "roots/wp-config": "^1.0",
     "vlucas/phpdotenv": "^5.0",
-    "wpackagist-plugin/advanced-custom-fields": "5.*",
-    "wpackagist-plugin/relevanssi": "4.*",
-    "wpackagist-plugin/wp-ulike": "4.*",
-    "wpackagist-plugin/theme-translation-for-polylang": "3.*",
-    "wpackagist-plugin/webp-express": "0.*",
-    "wpackagist-plugin/koko-analytics": "1.1.0",
-    "wpackagist-plugin/opengraph": "1.*"
+    "wp-plugin/advanced-custom-fields": "5.*",
+    "wp-plugin/relevanssi": "4.*",
+    "wp-plugin/wp-ulike": "4.*",
+    "wp-plugin/theme-translation-for-polylang": "3.*",
+    "wp-plugin/webp-express": "0.*",
+    "wp-plugin/koko-analytics": "1.1.0",
+    "wp-plugin/opengraph": "1.*"
   },
   "require-dev": {
     "laravel/pint": "^1.0",
